@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "straightpcf"
+version = "0.1.0" # Consider using a version reflecting the CVPR 2024 paper, e.g., 1.0.0
+authors = [
+  { name="Dasith de Silva Edirimuni et al.", email="you@example.com" },
+]
+description = "StraightPCF: Straight Point Cloud Filtering (CVPR 2024)" # Extracted from README
+readme = "README.md"
+requires-python = ">=3.8" # Updated based on README
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License", # TODO: Verify this matches your LICENSE file
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "torch>=2.0.1", # Specific versions from README
+    "torchvision>=0.15.2",
+    "torchaudio>=2.0.2",
+    "fvcore",
+    "iopath",
+    "pytorch3d>=0.7.4", # From README preamble, ensure compatibility if using pip vs conda install method from README
+    # Note: README used 'pip install "git+https://github.com/facebookresearch/pytorch3d.git"' as well, consider if specific commit is needed
+    "torch-geometric>=2.3.1", # PyG is torch-geometric on PyPI
+    "torch-cluster", # Explicitly listed, though often a PyG dependency
+    "point-cloud-utils==0.29.6",
+    "plyfile",
+    "pandas",
+    "tensorboard",
+    "torchsummary",
+    # Note: nvidiacub was installed via conda, may not be needed/available via pip directly
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["utils*", "models*"]
+exclude = ["tests*", "pretrained*", "datasets*", "logs*"] # Added datasets and logs to exclude
+
+# Optional: Define console scripts for your train/test files
+# [project.scripts]
+# straightpcf-train = "train_straightpcf:main"
+# straightpcf-test = "test_straightpcf:main"
+# cvm-train = "train_cvm:main"
+# cvm-test = "test_cvm:main"
+# vm-train = "train_vm:main"
+# vm-test = "test_vm:main"
+# # TODO: Uncomment and adjust if needed. Ensure scripts have a main() function or similar entry point.
+
+[project.urls]
+"Homepage" = "https://github.com/yourusername/StraightPCF" # TODO: Replace yourusername
+"Bug Tracker" = "https://github.com/yourusername/StraightPCF/issues" # TODO: Replace yourusername
+# Consider adding a link to the paper
+# "Paper" = "URL_TO_PAPER" 

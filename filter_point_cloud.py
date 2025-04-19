@@ -9,7 +9,7 @@ from models.straightpcf import StraightPCF
 
 def apply_straightpcf_filter(
     input_pcl_np: np.ndarray,
-    ckpt_path: str,
+    ckpt_path: str = "pretrained_straightpcf/ckpt_straightpcf.pt",
     device: str = 'cuda',
     patch_size: int = 1000,
     seed_k: int = 6,

@@ -17,9 +17,6 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "torch>=2.0.1", # Specific versions from README
-    "torchvision>=0.15.2",
-    "torchaudio>=2.0.2",
     "fvcore",
     "iopath",
     "pytorch3d",

@@ -13,7 +13,7 @@ readme = "README.md"
 requires-python = ">=3.8" # Updated based on README
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License", # TODO: Verify this matches your LICENSE file
+    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
 ]
 dependencies = [
@@ -22,7 +22,7 @@ dependencies = [
     "torchaudio>=2.0.2",
     "fvcore",
     "iopath",
-    "pytorch3d>=0.7.4", # From README preamble, ensure compatibility if using pip vs conda install method from README
+    "pytorch3d",
     # Note: README used 'pip install "git+https://github.com/facebookresearch/pytorch3d.git"' as well, consider if specific commit is needed
     "torch-geometric>=2.3.1", # PyG is torch-geometric on PyPI
     "torch-cluster", # Explicitly listed, though often a PyG dependency

@@ -1,3 +1,4 @@
+import os
 import torch
 from torch import nn
 from torch.distributions.uniform import Uniform
@@ -10,7 +11,7 @@ from models.feature import FeatureExtraction
 from models.decoder import Decoder
 
 from inspect import signature
-import os
+
 def get_random_indices(n, m):
     assert m < n
     return np.random.permutation(n)[:m]
@@ -34,7 +35,7 @@ class StraightPCF(nn.Module):
             if not hasattr(args, 'cvm_ckpt'):
                 args.cvm_ckpt = './pretrained_cvm/ckpt_cvm.pt'
             if not os.path.exists(args.cvm_ckpt):
-                args.cvm_ckpt = './pretrained_cvm/ckpt_cvm.pt'
+                args.cvm_ckpt = './StraightPCF/pretrained_cvm/ckpt_cvm.pt'
             cvm_ckpt = torch.load(args.cvm_ckpt, map_location=args.device)
 
             if hasattr(cvm_ckpt['args'], 'num_modules'):

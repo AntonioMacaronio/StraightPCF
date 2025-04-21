@@ -10,7 +10,7 @@ from models.feature import FeatureExtraction
 from models.decoder import Decoder
 
 from inspect import signature
-
+import os
 def get_random_indices(n, m):
     assert m < n
     return np.random.permutation(n)[:m]
@@ -32,6 +32,8 @@ class StraightPCF(nn.Module):
             self.num_modules = len(self.velocity_nets)
         else:
             if not hasattr(args, 'cvm_ckpt'):
+                args.cvm_ckpt = './pretrained_cvm/ckpt_cvm.pt'
+            if not os.path.exists(args.cvm_ckpt):
                 args.cvm_ckpt = './pretrained_cvm/ckpt_cvm.pt'
             cvm_ckpt = torch.load(args.cvm_ckpt, map_location=args.device)
 
